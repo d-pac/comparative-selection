@@ -1,0 +1,38 @@
+{
+  "name": "d-pac.comparative-judgement",
+  "version": "1.0.0",
+  "description": "Comparative judgement algorithm plugin for d-pac platform",
+  "homepage": "https://github.com/d-pac/d-pac.comparative-judgement",
+  "author": {
+    "name": "d-pac",
+    "email": "info@d-pac.be",
+    "url": "http://www.d-pac.be"
+  },
+  "repository": "d-pac/d-paccomparative-judgement",
+  "license": "GPL v3",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "d-paccomparative-judgement",
+    "d-pac-plugin",
+    "d-pac",
+    "performance",
+    "assessment",
+    "comparative"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^1.0.0",
+    "time-grunt": "^1.0.0",
+    "grunt-mocha-cli": "^1.11.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
