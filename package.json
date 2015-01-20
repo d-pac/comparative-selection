@@ -1,21 +1,20 @@
 {
-  "name": "d-pac.comparative-judgement",
-  "version": "1.0.0",
-  "description": "Comparative judgement algorithm plugin for d-pac platform",
-  "homepage": "https://github.com/d-pac/d-pac.comparative-judgement",
+  "name": "d-pac.comparative-selection",
+  "version": "0.0.0",
+  "description": "Comparative selection algorithm plugin for d-pac platform",
+  "homepage": "https://github.com/d-pac/d-pac.comparative-selection",
   "author": {
     "name": "d-pac",
     "email": "info@d-pac.be",
     "url": "http://www.d-pac.be"
   },
-  "repository": "d-pac/d-paccomparative-judgement",
+  "repository": "d-pac/d-pac.comparative-selection",
   "license": "GPL v3",
   "files": [
     "index.js"
   ],
   "keywords": [
-    "d-paccomparative-judgement",
-    "d-pac-plugin",
+    "d-pac.plugin",
     "d-pac",
     "performance",
     "assessment",
