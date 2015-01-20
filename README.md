@@ -1,7 +1,8 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+#  d-pac.comparative-selection
 
 > Comparative selection algorithm plugin for d-pac platform
 
+See [d-pac.plugin specifications for more information](https://github.com/d-pac/d-pac.docs/blob/master/analysis/plugin%20specification.md)
 
 ## Install
 
