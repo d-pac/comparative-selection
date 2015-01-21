@@ -11,7 +11,7 @@ Based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj).
 The algorithm accepts a queue (Array) of items, then:
 
 1. pseudo-randomizes the queue order
-1. sorts the queue by `comparedNum`
+1. sorts the queue by `compared.length`
 1. retains the first item as 'selected'
 1. retains the next valid item as 'opponent':
     * either, the next item in the (shuffled) queue when 'selected' has no previous comparisons.
@@ -28,14 +28,20 @@ $ npm install --save comparative-selection
 ## Usage
 
 ```js
-var cj = require('comparative-selection');
+var cs = require('comparative-selection');
 
-cj.select( representations );
+cs.select( representations );
 ```
 
 ## API
 
-See [docs](docs)
+### `select(items)`
+
+* `items`: `{Object[]}` _**(required)**_ Array of items with following minimal structure:
+
+    * `_id` : `{String}` _**(required)**_ Unique identifier for the item
+    * `compared` : {String[]} _**(required)**_ Array of unique identifiers
+
 
 ## License
 
