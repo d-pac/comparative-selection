@@ -1,48 +1,59 @@
-'use strict';
-module.exports = function (grunt) {
+"use strict";
+module.exports = function( grunt ){
   // Show elapsed time at the end
-  require('time-grunt')(grunt);
+  require( "time-grunt" )( grunt );
   // Load all grunt tasks
-  require('load-grunt-tasks')(grunt);
+  require( "jit-grunt" )( grunt, {
+    mochacli : "grunt-mocha-cli"
+  } );
 
-  grunt.initConfig({
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
+  var paths = {
+    source : [ "index.js", "lib/**/*.js" ],
+    tests  : [ "test/**/*.js" ]
+  };
+
+  grunt.initConfig( {
+
+    jshint : {
+      options : {
+        jshintrc : ".jshintrc",
+        reporter : require( "jshint-stylish" )
       },
-      gruntfile: {
-        src: ['Gruntfile.js']
+      build   : {
+        src : [ "Gruntfile.js" ]
       },
-      js: {
-        src: ['*.js']
+      source  : {
+        src : paths.source
       },
-      test: {
-        src: ['test/**/*.js']
+      test    : {
+        src : paths.tests
       }
     },
-    mochacli: {
-      options: {
-        reporter: 'nyan',
-        bail: true
+
+    jscs : {
+      options : {
+        config : ".jscsrc"
       },
-      all: ['test/*.js']
-    },
-    watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+      source  : {
+        src : paths.source
       },
-      js: {
-        files: '<%= jshint.js.src %>',
-        tasks: ['jshint:js', 'mochacli']
-      },
-      test: {
-        files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test', 'mochacli']
+      test    : {
+        src : paths.tests
       }
+    },
+
+    mochacli : {
+      options : {
+        reporter : "spec",
+        bail     : true
+      },
+      all     : paths.tests
     }
-  });
 
-  grunt.registerTask('default', ['jshint', 'mochacli']);
+  } );
+
+  grunt.registerTask( "lint", [ "jshint", "jscs" ] );
+  grunt.registerTask( "test", [ "mochacli" ] );
+
+  grunt.registerTask( "default", [ "lint", "test" ] );
 };
