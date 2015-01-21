@@ -1,4 +1,4 @@
-#  d-pac.comparative-selection
+#  comparative-selection
 
 > Comparative selection algorithm plugin for d-pac platform
 
@@ -21,37 +21,30 @@ The algorithm accepts a queue (Array) of items, then:
 ## Install
 
 ```sh
-$ npm install --save d-pac.comparative-selection
+$ npm install --save comparative-selection
 ```
 
 
 ## Usage
 
 ```js
-var cj = require('d-pac.comparative-selection');
+var cj = require('comparative-selection');
 
 cj.select( representations );
 ```
 
 ## API
 
-### `select(items)`
-
-* `items`: `{Object[]}` _**(required)**_ Array of items with following minimal structure:
-
-    * `_id` : `{String}` _**(required)**_ Unique identifier for the item
-    * `compared` : {String}[] _**(required)**_ Array of unique identifiers
-    * `comparedNum`: {Number} _(optional)_ Number of comparisons, equals `compared.length`. (Added for speed benefits)
-
+See [docs](docs)
 
 ## License
 
 GPL v3 © [d-pac](http://www.d-pac.be)
 
 
-[npm-url]: https://npmjs.org/package/d-pac.comparative-selection
-[npm-image]: https://badge.fury.io/js/d-pac.comparative-selection.svg
-[travis-url]: https://travis-ci.org/d-pac/d-pac.comparative-selection
-[travis-image]: https://travis-ci.org/d-pac/d-pac.comparative-selection.svg?branch=master
-[daviddm-url]: https://david-dm.org/d-pac/d-pac.comparative-selection.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/d-pac/d-pac.comparative-selection
+[npm-url]: https://npmjs.org/package/comparative-selection
+[npm-image]: https://badge.fury.io/js/comparative-selection.svg
+[travis-url]: https://travis-ci.org/d-pac/comparative-selection
+[travis-image]: https://travis-ci.org/d-pac/comparative-selection.svg?branch=master
+[daviddm-url]: https://david-dm.org/d-pac/comparative-selection.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/d-pac/comparative-selection
