@@ -21,7 +21,9 @@
     "assessment",
     "comparative"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
   "devDependencies": {
     "chai": "^1.10.0",
     "grunt-cli": "^0.1.13",
