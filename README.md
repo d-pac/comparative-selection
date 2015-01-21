@@ -1,4 +1,4 @@
-#  comparative-selection
+ [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
 > Comparative selection algorithm plugin for d-pac platform
 
