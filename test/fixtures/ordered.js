@@ -2,15 +2,18 @@
 
 module.exports = [
   {
-    _id      : "selected",
-    compared : []
+    _id         : "selected",
+    compared    : [],
+    comparedNum : 0
   },
   {
-    _id      : "opponent",
-    compared : [ "skip" ]
+    _id         : "opponent",
+    compared    : [ "skip" ],
+    comparedNum : 1
   },
   {
-    _id      : "skip",
-    compared : [ "opponent", "undefined" ]
+    _id         : "skip",
+    compared    : [ "opponent", "undefined" ],
+    comparedNum : 2
   }
 ];
