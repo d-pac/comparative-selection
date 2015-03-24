@@ -1,6 +1,6 @@
 {
   "name": "comparative-selection",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Comparative selection algorithm plugin for d-pac platform",
   "homepage": "https://github.com/d-pac/comparative-selection",
   "author": {
