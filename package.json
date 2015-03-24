@@ -22,7 +22,7 @@
     "comparative"
   ],
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^3.5.0"
   },
   "devDependencies": {
     "chai": "^1.10.0",
