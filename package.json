@@ -40,9 +40,6 @@
     "sinon": "^1.12.2",
     "time-grunt": "^1.0.0"
   },
-  "peerDependencies": {
-    "d-pac.cms": "^0.5.7"
-  },
   "scripts": {
     "test": "grunt"
   },
