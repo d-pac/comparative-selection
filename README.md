@@ -2,7 +2,7 @@
 
 > Comparative selection algorithm plugin for d-pac platform
 
-See [d-pac.plugin specifications for more information](https://github.com/d-pac/d-pac.docs/blob/master/analysis/plugin%20specification.md)
+See [d-pac.plugin specifications for more information](http://d-pac.github.io/d-pac.docs/developer/plugin%20specification.html)
 
 Based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj).
 
