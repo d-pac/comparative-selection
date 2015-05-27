@@ -13,7 +13,7 @@ var subject = require( "../lib/comparativeSelection" );
 describe( "comparativeSelection", function(){
   describe( "spec file", function(){
     it( "should be found", function(){
-      expect( false ).to.be.false();
+      expect( true ).to.be.true();
     } );
   } );
   describe( "module", function(){
