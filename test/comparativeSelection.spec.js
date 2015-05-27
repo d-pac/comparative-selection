@@ -42,22 +42,22 @@ describe( "comparativeSelection", function(){
       } ).to.throw( inputError );
     } );
     it( "should return the first two elements in an ordered queue", function(){
-      var selected = subject.select( fx.ordered );
+      var selected = subject.select( fx.ordered ).result;
       expect( selected[ 0 ] ).to.be( fx.ordered[ 0 ] );
       expect( selected[ 1 ] ).to.be( fx.ordered[ 1 ] );
     } );
     it( "should sort them by number of comparisons", function(){
-      var selected = subject.select( fx.shuffled );
+      var selected = subject.select( fx.shuffled ).result;
       expect( selected[ 0 ].compared.length ).to.be( 0 );
       expect( selected[ 1 ].compared.length ).to.be( 1 );
     } );
     it( "should pick an `opponent` uncompared with `selected`", function(){
-      var selected = subject.select( fx[ "once-compared" ] );
+      var selected = subject.select( fx[ "once-compared" ] ).result;
       expect( selected[ 0 ]._id ).to.be( "selected" );
       expect( selected[ 1 ]._id ).to.be( "opponent" );
     } );
     it( "should pick the next in queue as `opponent` when `selected` compared to all", function(){
-      var selected = subject.select( fx[ "all-compared" ] );
+      var selected = subject.select( fx[ "all-compared" ] ).result;
       expect( selected[ 0 ]._id ).to.be( "selected" );
       expect( selected[ 1 ]._id ).to.be( "opponent" );
     } );
