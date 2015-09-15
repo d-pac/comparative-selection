@@ -47,7 +47,8 @@
     {
       "name": "comparative-selection",
       "description": "Simple comparative selection algorithm based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj)",
-      "type": "select"
+      "type": "select",
+      "compatibility": "0.6.0"
     }
   ]
 }
