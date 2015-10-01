@@ -22,24 +22,28 @@ describe( "comparativeSelection", function(){
     } );
   } );
   describe( "#select", function(){
-    var inputError = /should be an Array with/;
     it( "should be a function", function(){
       expect( subject.select ).to.be.a.function();
     } );
     it( "should throw an error when `items` is `undefined`", function(){
       expect( function(){
         subject.select();
-      } ).to.throw( inputError );
+      } ).to.throw( /minimum length/i );
     } );
     it( "should throw an error when `items` is not an `Array`", function(){
       expect( function(){
         subject.select( {} );
-      } ).to.throw( inputError );
+      } ).to.throw( /minimum length/i );
     } );
     it( "should throw an error when `items` has length < 2", function(){
       expect( function(){
         subject.select( [ {} ] );
-      } ).to.throw( inputError );
+      } ).to.throw( /minimum length/i );
+    } );
+    it( 'should throw an error when it doesn\'t pass json schema validation', function(){
+      expect( function(){
+        subject.select( [ {}, {} ] );
+      } ).to.throw( /invalid/i );
     } );
     it( "should return the first two elements in an ordered queue", function(){
       var selected = subject.select( fx.ordered ).result;
