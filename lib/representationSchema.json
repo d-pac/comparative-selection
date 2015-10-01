@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "required": true,
+  "title": "Representation",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "compared":{
+      "description": "List of representation id's this representation has been compared to.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": false,
+      "minItems": 0
+    }
+  },
+  "additionalProperties": true
+}

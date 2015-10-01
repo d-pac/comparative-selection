@@ -22,6 +22,7 @@
     "comparative"
   ],
   "dependencies": {
+    "is-my-json-valid": "^2.12.2",
     "lodash": "^3.5.0"
   },
   "devDependencies": {
