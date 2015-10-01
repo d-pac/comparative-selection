@@ -28,17 +28,17 @@ describe( "comparativeSelection", function(){
     it( "should throw an error when `items` is `undefined`", function(){
       expect( function(){
         subject.select();
-      } ).to.throw( /minimum length/i );
+      } ).to.throw( /invalid/i );
     } );
     it( "should throw an error when `items` is not an `Array`", function(){
       expect( function(){
         subject.select( {} );
-      } ).to.throw( /minimum length/i );
+      } ).to.throw( /invalid/i );
     } );
     it( "should throw an error when `items` has length < 2", function(){
       expect( function(){
         subject.select( [ {} ] );
-      } ).to.throw( /minimum length/i );
+      } ).to.throw( /invalid/i );
     } );
     it( 'should throw an error when it doesn\'t pass json schema validation', function(){
       expect( function(){
