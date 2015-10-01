@@ -5,7 +5,8 @@
   "type": "object",
   "properties": {
     "_id": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "compared":{
       "description": "List of representation id's this representation has been compared to.",
@@ -14,7 +15,8 @@
         "type": "string"
       },
       "uniqueItems": false,
-      "minItems": 0
+      "minItems": 0,
+      "required": true
     }
   },
   "additionalProperties": true
