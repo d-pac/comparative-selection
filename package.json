@@ -22,8 +22,8 @@
     "comparative"
   ],
   "dependencies": {
-    "is-my-json-valid": "^2.12.2",
-    "lodash": "^3.5.0"
+    "lodash": "^3.5.0",
+    "d-pac.plugins-spec": "^0.4.0"
   },
   "devDependencies": {
     "mocha": "^2.1.0",
@@ -39,8 +39,7 @@
     {
       "name": "comparative-selection",
       "description": "Simple comparative selection algorithm based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj)",
-      "type": "select",
-      "compatibility": "^0.6.0"
+      "type": "select"
     }
   ]
 }
