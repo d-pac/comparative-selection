@@ -25,43 +25,38 @@ describe( "comparativeSelection", function(){
     it( "should be a function", function(){
       expect( subject.select ).to.be.a.function();
     } );
-    it( "should throw an error when `items` is `undefined`", function(){
+    it( "should throw an error when `payload` is `undefined`", function(){
       expect( function(){
         subject.select();
       } ).to.throw( /invalid/i );
     } );
-    it( "should throw an error when `items` is not an `Array`", function(){
+    it( "should throw an error when `payload.representations` is `undefined`", function(){
       expect( function(){
         subject.select( {} );
       } ).to.throw( /invalid/i );
     } );
-    it( "should throw an error when `items` has length < 2", function(){
+    it( "should throw an error when `payload.representations` has length < 2", function(){
       expect( function(){
-        subject.select( [ {} ] );
-      } ).to.throw( /invalid/i );
-    } );
-    it( 'should throw an error when it doesn\'t pass json schema validation', function(){
-      expect( function(){
-        subject.select( [ {}, {} ] );
+        subject.select( { representations : [] } );
       } ).to.throw( /invalid/i );
     } );
     it( "should return the first two elements in an ordered queue", function(){
-      var selected = subject.select( fx.ordered ).result;
+      var selected = subject.select( { representations : fx.ordered } ).result;
       expect( selected[ 0 ] ).to.be( fx.ordered[ 0 ] );
       expect( selected[ 1 ] ).to.be( fx.ordered[ 1 ] );
     } );
     it( "should sort them by number of comparisons", function(){
-      var selected = subject.select( fx.shuffled ).result;
+      var selected = subject.select( { representations : fx.shuffled } ).result;
       expect( selected[ 0 ].compared.length ).to.be( 0 );
       expect( selected[ 1 ].compared.length ).to.be( 1 );
     } );
     it( "should pick an `opponent` uncompared with `selected`", function(){
-      var selected = subject.select( fx[ "once-compared" ] ).result;
+      var selected = subject.select( { representations : fx[ "once-compared" ] } ).result;
       expect( selected[ 0 ]._id ).to.be( "selected" );
       expect( selected[ 1 ]._id ).to.be( "opponent" );
     } );
     it( "should pick the next in queue as `opponent` when `selected` compared to all", function(){
-      var selected = subject.select( fx[ "all-compared" ] ).result;
+      var selected = subject.select( { representations : fx[ "all-compared" ] } ).result;
       expect( selected[ 0 ]._id ).to.be( "selected" );
       expect( selected[ 1 ]._id ).to.be( "opponent" );
     } );
