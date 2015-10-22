@@ -40,6 +40,13 @@ describe( "comparativeSelection", function(){
         subject.select( { representations : [] } );
       } ).to.throw( /invalid/i );
     } );
+    it( "should throw an error if any representation is missing a `compared` field", function(){
+      expect( function(){
+        subject.select( { representations : [{
+          _id: "a"
+        }] } );
+      } ).to.throw( /invalid/i );
+    } );
     it( "should return the first two elements in an ordered queue", function(){
       var selected = subject.select( { representations : fx.ordered } ).result;
       expect( selected[ 0 ] ).to.be( fx.ordered[ 0 ] );
