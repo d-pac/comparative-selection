@@ -41,5 +41,8 @@
       "description": "Simple comparative selection algorithm based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj)",
       "type": "select"
     }
-  ]
+  ],
+  "engines": {
+    "node": "4"
+  }
 }
