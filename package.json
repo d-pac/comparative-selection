@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "d-pac.plugins-spec": "0.4.1",
-    "lodash": "4.1.0"
+    "lodash": "4.2.1"
   },
   "devDependencies": {
     "mocha": "2.4.5",
