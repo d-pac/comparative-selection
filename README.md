@@ -35,12 +35,38 @@ cs.select( representations );
 
 ## API
 
-### `select(items)`
+### `select(payload)`
 
-* `items`: `{Object[]}` _**(required)**_ Array of items with following minimal structure:
+* `payload`: `{{}}` _**(required)**_ contains:
+    * `representations` _**(required)**_ Array of objects with following minimal structure:
+        * `_id` : `{String}` _**(required)**_ Unique identifier for the item
+        * `compared` : {String[]} _**(required)**_ Array of unique identifiers
 
-    * `_id` : `{String}` _**(required)**_ Unique identifier for the item
-    * `compared` : {String[]} _**(required)**_ Array of unique identifiers
+#### Example:
+
+```js
+const selected = cs.select({ representations: [
+    {
+     _id         : "3",
+     compared    : [ "2", "4" ]
+    },
+    {
+     _id         : "2",
+     compared    : [ "3" ]
+    },
+    {
+     _id         : "1",
+     compared    : []
+    },
+    {
+     _id         : "4",
+     compared    : [ "3", "5", "6" ]
+    }
+  ] } );
+console.log( selected );
+// outputs:
+// ["2", "1"]
+```
 
 ## Development
 
