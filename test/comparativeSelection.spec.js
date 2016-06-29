@@ -1,10 +1,5 @@
 "use strict";
-/* global describe, it, beforeEach */
-/* jshint unused:false */
 
-const _ = require( "lodash" );
-const sinon = require( "sinon" );
-const stub = require( "proxyquire" );
 const expect = require( "must" );
 const fx = require( "./fixtures" );
 
