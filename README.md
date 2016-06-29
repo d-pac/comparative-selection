@@ -42,6 +42,19 @@ cs.select( representations );
     * `_id` : `{String}` _**(required)**_ Unique identifier for the item
     * `compared` : {String[]} _**(required)**_ Array of unique identifiers
 
+## Development
+
+### Testing
+
+```sh
+$ npm test
+```
+
+### Linting
+
+```sh
+$ npm run lint
+```
 
 ## License
 
