@@ -15,20 +15,20 @@ describe( "comparativeSelection", ()=>{
   describe( "#select", () => {
     it( "should be a function", () => expect( subject.select ).to.be.a.function() );
     it( "should throw an error when `payload` is `undefined`", () => {
-      expect( () => subject.select() ).to.throw( /invalid/i );
+      expect( () => subject.select() ).to.throw();
     } );
     it( "should throw an error when `payload.representations` is `undefined`", () => {
-      expect( () => subject.select( {} ) ).to.throw( /invalid/i );
+      expect( () => subject.select( {} ) ).to.throw();
     } );
     it( "should throw an error when `payload.representations` has length < 2", () => {
-      expect( () => subject.select( { representations : [] } ) ).to.throw( /invalid/i );
+      expect( () => subject.select( { representations : [] } ) ).to.throw();
     } );
     it( "should throw an error if any representation is missing a `compared` field", () => {
       expect( () => {
         subject.select( { representations : [{
           _id: "a"
         }] } );
-      } ).to.throw( /invalid/i );
+      } ).to.throw();
     } );
     it( "should return the first two elements in an ordered queue", () => {
       const selected = subject.select( { representations : fx.ordered } ).result;

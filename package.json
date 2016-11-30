@@ -22,7 +22,6 @@
     "comparative"
   ],
   "dependencies": {
-    "d-pac.plugins-spec": "0.5.0",
     "lodash": "4.1.0"
   },
   "devDependencies": {
