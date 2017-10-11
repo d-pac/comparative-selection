@@ -1,9 +1,26 @@
 "use strict";
 
 const expect = require( "must" );
-const fx = require( "./fixtures" );
+const {
+  ordered,
+  shuffled,
+  onceCompared,
+  allCompared
+} = require( "./fixtures" );
 
 const subject = require( "../lib/comparativeSelection" );
+
+/**
+ *
+ * @param representations
+ * @return {Item[]}
+ */
+function convertRepresentations(representations){
+  return representations.map(r=>({
+    id: r._id,
+    compared: r.compared
+  }))
+}
 
 describe( "comparativeSelection", ()=>{
   describe( "spec file", ()=>{
@@ -14,41 +31,36 @@ describe( "comparativeSelection", ()=>{
   } );
   describe( "#select", () => {
     it( "should be a function", () => expect( subject.select ).to.be.a.function() );
-    it( "should throw an error when `payload` is `undefined`", () => {
-      expect( () => subject.select() ).to.throw();
-    } );
-    it( "should throw an error when `payload.representations` is `undefined`", () => {
-      expect( () => subject.select( {} ) ).to.throw();
-    } );
-    it( "should throw an error when `payload.representations` has length < 2", () => {
-      expect( () => subject.select( { representations : [] } ) ).to.throw();
-    } );
     it( "should throw an error if any representation is missing a `compared` field", () => {
       expect( () => {
-        subject.select( { representations : [{
-          _id: "a"
-        }] } );
+        subject.select( [{
+          id: "a"
+        }] );
       } ).to.throw();
     } );
     it( "should return the first two elements in an ordered queue", () => {
-      const selected = subject.select( { representations : fx.ordered } ).result;
-      expect( selected[ 0 ] ).to.be( fx.ordered[ 0 ] );
-      expect( selected[ 1 ] ).to.be( fx.ordered[ 1 ] );
+      const items = convertRepresentations(ordered);
+      const selected = subject.select( items );
+      expect( selected.a ).to.be( items[ 0 ].id );
+      expect( selected.b ).to.be( items[ 1 ].id );
     } );
     it( "should sort them by number of comparisons", () => {
-      const selected = subject.select( { representations : fx.shuffled } ).result;
-      expect( selected[ 0 ].compared.length ).to.be( 0 );
-      expect( selected[ 1 ].compared.length ).to.be( 1 );
+      const items = convertRepresentations(shuffled);
+      const selected = subject.select( items );
+      expect( selected.a ).to.be( "1" );
+      expect( selected.b ).to.be( "2" );
     } );
     it( "should pick an `opponent` uncompared with `selected`", () => {
-      const selected = subject.select( { representations : fx[ "once-compared" ] } ).result;
-      expect( selected[ 0 ]._id ).to.be( "selected" );
-      expect( selected[ 1 ]._id ).to.be( "opponent" );
+      const items = convertRepresentations(onceCompared);
+      const selected = subject.select( items );
+      expect( selected.a).to.be( "selected" );
+      expect( selected.b ).to.be( "opponent" );
     } );
     it( "should pick the next in queue as `opponent` when `selected` compared to all", () => {
-      const selected = subject.select( { representations : fx[ "all-compared" ] } ).result;
-      expect( selected[ 0 ]._id ).to.be( "selected" );
-      expect( selected[ 1 ]._id ).to.be( "opponent" );
+      const items = convertRepresentations(allCompared);
+      const selected = subject.select( items );
+      expect( selected.a ).to.be( "selected" );
+      expect( selected.b ).to.be( "opponent" );
     } );
   } );
 } );
