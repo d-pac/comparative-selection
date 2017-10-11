@@ -94,13 +94,13 @@ Returns **[Comparison](#comparison)** the pair of items to compare
 ### Testing
 
 ```sh
-$ npm test
+$ yarn test
 ```
 
 ### Linting
 
 ```sh
-$ npm run lint
+$ yarn lint
 ```
 
 ## License
