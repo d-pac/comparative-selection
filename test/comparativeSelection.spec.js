@@ -7,7 +7,8 @@ const {
   shuffled,
   onceCompared,
   allCompared,
-  noneCompared
+  noneCompared,
+  comparedWithAll
 } = require("./fixtures");
 
 const subject = require("../lib/comparativeSelection");
@@ -54,6 +55,18 @@ describe("comparativeSelection", () => {
         const selected = subject.select(allCompared);
         expect(selected.a).to.be("selected");
         expect(selected.b).to.be("opponent");
+      });
+    });
+    it('should return random items, when compared with all others', ()=>{
+      const selected = [];
+      _.times(2000, function () {
+        const actual = subject.select(comparedWithAll);
+        expect(actual).to.include('selected');
+        selected.push(actual.a, actual.b);
+      });
+
+      comparedWithAll.items.forEach((item) => {
+        expect(selected).to.include(item.id);
       });
     });
   });

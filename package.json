@@ -25,9 +25,10 @@
     "lodash": "4.1.0"
   },
   "devDependencies": {
-    "documentation": "^5.3.2",
+    "documentation": "5.3.2",
     "eslint": "^2.13.1",
     "eslint-config-prototypers": "^0.2.0",
+    "istanbul": "0.4.4",
     "mocha": "2.4.5",
     "must": "0.12.0",
     "proxyquire": "1.7.4",
@@ -35,6 +36,7 @@
     "sinon": "1.17.3"
   },
   "scripts": {
+    "test-cov": "istanbul cover _mocha",
     "docs": "documentation readme lib -f md --section=API",
     "test": "mocha test/*.spec.js -R dot",
     "lint": "eslint lib test && echo 'Linting finished!'"

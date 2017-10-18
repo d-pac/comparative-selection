@@ -6,23 +6,23 @@ module.exports = {
       id: "skip1",
     },
     {
-      id: "skip2"
+      id: "opponent"
     },
     {
       id: "selected",
     },
     {
-      id: "opponent",
+      id: "skip2",
     }
   ],
   comparisons: [
     {a: "skip1", b: "selected"},
-    {a: "selected", b: "opponent"},
-    {a: "opponent", b: "skip1"},
-    {a: "skip2", b: "opponent"},
-    {a: "skip1", b: "skip2"},
-    {a: "skip1", b: "skip2"},
-    {a: "skip1", b: "skip2"},
-    {a: "skip1", b: "skip2"}
+    {a: "selected", b: "skip2"},
+    {a: "skip2", b: "skip1"},
+    {a: "opponent", b: "skip2"},
+    {a: "skip1", b: "opponent"},
+    {a: "skip1", b: "opponent"},
+    {a: "skip1", b: "opponent"},
+    {a: "skip1", b: "opponent"}
   ]
 };
