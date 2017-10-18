@@ -1,16 +1,25 @@
 "use strict";
 
-module.exports = [
-  {
-    _id         : "selected",
-    compared    : [ "skip" ]
-  },
-  {
-    _id         : "skip",
-    compared    : [ "opponent", "selected" ]
-  },
-  {
-    _id         : "opponent",
-    compared    : [ "skip", "undefined", "undefined" ]
-  }
-];
+module.exports = {
+  items: [
+    {
+      id: "selected",
+    },
+    {
+      id: "skip1",
+    },
+    {
+      id: "opponent",
+    },
+    {
+      id: "skip2",
+    }
+  ],
+  comparisons: [
+    {a:"selected", b: "skip1"},
+    {a: "skip1", b: "skip2"},
+    {a: "skip2", b: "skip1"},
+    {a: "skip2", b: "opponent"},
+    {a: "skip2", b: "opponent"}
+  ]
+};

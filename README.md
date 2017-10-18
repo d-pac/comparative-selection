@@ -1,4 +1,4 @@
- [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+ [![NPM version][npm-image]][npm-url]
 
 > Comparative selection algorithm plugin for d-pac platform
 
@@ -8,12 +8,12 @@ Based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj).
 
 The algorithm accepts a queue (Array) of items, then:
 
-1.  pseudo-randomizes the queue order
-2.  sorts the queue by `compared.length`
+1.  pseudo-randomizes the items list
+2.  sorts the list by the number of comparisons each item has been featured in
 3.  retains the first item as 'selected'
 4.  retains the next valid item as 'opponent':
-    -   either, the next item in the (shuffled) queue when 'selected' has no previous comparisons.
-    -   or, the next item in the (shuffled) queue 'selected' hasn't been compared to yet.
+    -   either, the next item in the (shuffled) list when 'selected' has no previous comparisons.
+    -   or, the next item in the (shuffled) list 'selected' hasn't been compared to yet.
 5.  returns both items
 
 ## Install
@@ -22,13 +22,6 @@ The algorithm accepts a queue (Array) of items, then:
 $ yarn add comparative-selection
 ```
 
-## Usage
-
-```js
-var cs = require('comparative-selection');
-
-cs.select( representations );
-```
 
 ## API
 
@@ -41,8 +34,6 @@ Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 **Properties**
 
 -   `id` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** ID of the item
--   `compared` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array containing id's of the items this item has been compared with.
-    N.B. this _must_ contain duplicate ID's if the item has been compared multiple times with another item.
 
 ### Comparison
 
@@ -59,36 +50,27 @@ Simple comparative selection algorithm
 
 **Parameters**
 
--   `payload` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `payload` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Payload object containing the relevant values
     -   `payload.items` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Item](#item)>** An array of [Item](#item)s
+    -   `payload.comparisons` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Comparison](#comparison)>?** An array of [Comparison](#comparison)s
 
 **Examples**
 
 ```javascript
-const selected = cs.select([
-  {
-    id         : "3",
-    compared    : [ "2", "4" ]
-  },
-  {
-    id         : "2",
-    compared    : [ "3" ]
-  },
-  {
-    id         : "1",
-    compared    : []
-  },
-  {
-    id         : "4",
-    compared    : [ "3", "5", "6" ]
-  }
-]);
-console.log( selected );
-// outputs:
-// { a:"1", b:"2" }
+const comparative = require('comparative-selection');
+
+const pair = comparative.select([{id:"1"}, {id:"2"}, {id:"3"}, {id:"4"}]);
+console.log('pair:', pair); // e.g.: {a: "2", b: "4"}
 ```
 
-Returns **[Comparison](#comparison)** the pair of items to compare
+```javascript
+const comparative = require('comparative-selection');
+
+const pair = comparative.select([{id:"1"}, {id:"2"}, {id:"3"}, {id:"4"}], [{a:"2", b: "1"}]);
+console.log('pair:', pair); // {a: "3", b: "4"}
+```
+
+Returns **[Comparison](#comparison)** the pair of item ID's to compare
 
 ## Development
 
@@ -111,11 +93,3 @@ GPL v3 © [d-pac](http://www.d-pac.be)
 [npm-url]: https://npmjs.org/package/comparative-selection
 
 [npm-image]: https://badge.fury.io/js/comparative-selection.svg
-
-[travis-url]: https://travis-ci.org/d-pac/comparative-selection
-
-[travis-image]: https://travis-ci.org/d-pac/comparative-selection.svg?branch=master
-
-[daviddm-url]: https://david-dm.org/d-pac/comparative-selection.svg?theme=shields.io
-
-[daviddm-image]: https://david-dm.org/d-pac/comparative-selection

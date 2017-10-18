@@ -1,20 +1,21 @@
 "use strict";
 
-module.exports = [
-  {
-    _id         : "3",
-    compared    : [ "2", "4" ]
-  },
-  {
-    _id         : "2",
-    compared    : [ "3" ]
-  },
-  {
-    _id         : "1",
-    compared    : []
-  },
-  {
-    _id         : "4",
-    compared    : [ "3", "5", "6" ]
-  }
-];
+module.exports = {
+  items: [
+    {id: "6"},
+    {id: "3"},
+    {id: "2"},
+    {id: "5"},
+    {id: "1"},
+    {id: "4"},
+  ],
+  comparisons: [
+    {a: "3", b: "2"},
+    {a: "4", b: "3"},
+    {a: "4", b: "5"},
+    {a: "5", b: "6"},
+    {a: "4", b: "6"},
+    {a: "5", b: "6"},
+    {a: "5", b: "6"},
+  ]
+};
