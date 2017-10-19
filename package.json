@@ -44,7 +44,8 @@
   "d-pac": [
     {
       "name": "comparative-selection",
-      "description": "Simple comparative selection algorithm based on [NoMoreMarking's `cj` module](https://github.com/NoMoreMarking/cj)",
+      "label": "Comparative selection",
+      "description": "Simple comparative selection algorithm",
       "type": "select"
     }
   ]
