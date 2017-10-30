@@ -57,7 +57,7 @@ describe("comparativeSelection", () => {
         expect(selected.b).to.be("opponent");
       });
     });
-    it('should return random items, when compared with all others', ()=>{
+    it('should return random items, when compared with all others', () => {
       const selected = [];
       _.times(2000, function () {
         const actual = subject.select(comparedWithAll);
@@ -68,6 +68,13 @@ describe("comparativeSelection", () => {
       comparedWithAll.items.forEach((item) => {
         expect(selected).to.include(item.id);
       });
+    });
+  });
+  describe('regressions', () => {
+    it('should allow usage of representations in comparisons that are NOT provided in the list of representations', () => {
+      //this is specifically for peer assessments, since the representations of the current assessor are filtered out
+      const actual = subject.select({comparisons: comparedWithAll.comparisons, items: []});
+      expect(actual).to.not.include("messages");
     });
   });
 });
