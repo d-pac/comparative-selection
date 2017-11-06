@@ -73,7 +73,8 @@ describe("comparativeSelection", () => {
   describe('regressions', () => {
     it('should allow usage of representations in comparisons that are NOT provided in the list of representations', () => {
       //this is specifically for peer assessments, since the representations of the current assessor are filtered out
-      const actual = subject.select({comparisons: comparedWithAll.comparisons, items: []});
+      comparedWithAll.items.pop();
+      const actual = subject.select({comparisons: comparedWithAll.comparisons, items: comparedWithAll.items});
       expect(actual).to.not.include("messages");
     });
   });
